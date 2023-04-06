@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:;base64,=">
+    <link rel="icon" href="images/sunshine.ico"></link>
+    <title>Sunshine Weather</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="weather-info">
+            <div>
+                <p class="temp"></p>
+            </div>
+            <div>
+                <p class="city"></p>
+                <p class="time"></p>
+            </div>
+            <div>
+                <img src="">
+                <p class="description"></p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="search">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Enter your location">
+                <button class="fa-solid fa-magnifying-glass"></button>
+            </div>
+            <div class="history">
+                <h3>Search History</h3>
+                <ul>
+                    <li id="one">London</li>
+                    <li id="two">Paris</li>
+                    <li id="three">Tokyo</li>
+                    <li id="four">New York</li>
+                </ul>
+            </div>
+            <div class="weather-details">
+                <h3>Weather Details</h3>
+                <div class="cloudy">
+                    <i class="fa-solid fa-cloud"></i>
+                    <div class="text">
+                        <span></span>
+                        <p>Cloudy</p>
+                    </div>
+                </div>
+                <div class="humidity">
+                    <i class="fa-solid fa-water"></i>
+                    <div class="text">
+                        <span></span>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="text">
+                        <span></span>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mention">
+                <p>Coded by <span id="name">Matías Gonta</span>.</p>
+            </div>
+        </div>
+        <div class="error">
+            <span class="error-msg">Your location was not founded</span>
+            <span class="fas fa-exclamation-circle"></span>
+        </div>
+        <div class="popup">
+            <div class="close">&times;</div>
+            <div class="popup-container">
+                <h1 class="title">Social Networks</h1>
+                <div>
+                    <div class="socials">
+                        <img src="images/socials/linkedin-logo.png" alt="linkedin-logo">
+                        <a href="https://www.linkedin.com/in/mat%C3%ADas-gonta/"  target="_blank">Linkedin</a>
+                    </div>
+                    <div class="socials">
+                        <img src="images/socials/github-logo.png" alt="github-logo">
+                        <a href="https://github.com/MatiasGonta"  target="_blank">GitHub</a>
+                    </div>
+                    <div class="socials">
+                        <img src="images/socials/instagram-logo.png" alt="instagram-logo">
+                        <a href="https://www.instagram.com/matigonta_/"  target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
