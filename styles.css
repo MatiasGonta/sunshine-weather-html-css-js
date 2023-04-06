@@ -110,10 +110,6 @@ body{
     background: #fff;
 }
 
-.search input:focus , .search button:focus {
-    outline: none;
-}
-
 .search button{
     width: 40px;
     height: 40px;
@@ -248,10 +244,13 @@ body{
 
     box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
     border-radius: 10px;
-    transition: top 0ms ease-in-out 200ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 200ms ease-in-out 0ms;
     z-index: 20;
+}
+
+.popup, .popup.popup.active {
+    transition: top 0ms ease-in-out 200ms,
+    opacity 200ms ease-in-out 0ms,
+    transform 200ms ease-in-out 0ms;
 }
 
 .popup.active {
@@ -259,9 +258,6 @@ body{
 
     opacity: 1;
     transform: translate(-50%,-50%) scale(1);
-    transition: top 0ms ease-in-out 200ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 200ms ease-in-out 0ms;
 }
 
 .popup .close {
