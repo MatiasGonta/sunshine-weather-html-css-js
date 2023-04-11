@@ -1,18 +1,22 @@
 const search = document.querySelector('.search button');
 const searchBox = document.querySelector('.search');
 const error = document.querySelector('.error');
-let city, historyArray = ["London","Paris","Tokyo","New York"];
 
+let city, historyArray = ["London","Paris","Tokyo","New York"];//Default Search History
+
+// Select History buttons
 const historyOne = document.getElementById('one');
 const historyTwo = document.getElementById('two');
 const historyThree = document.getElementById('three');
 const historyFour = document.getElementById('four');
 
+// Default city weather search
 window.addEventListener('load', () => {
     city = "New York";
     searchWeather();
 });
 
+// Search History buttons
 historyOne.addEventListener('click', () => {
     city = historyOne.innerHTML;
     searchWeather();
@@ -54,6 +58,7 @@ function searchWeather() {
                 return;
             }
             
+            // Search History
             historyArray.pop();
             historyArray.unshift(city);
 
@@ -62,6 +67,7 @@ function searchWeather() {
             historyThree.innerHTML = historyArray[2];
             historyFour.innerHTML = historyArray[3];
 
+            // Real time
             const dateUnix = json.dt;
             const timezone = json.timezone;
             
@@ -84,6 +90,7 @@ function searchWeather() {
             
             const getDate = `${weekDayName} ${date.getUTCDate()}, ${monthName} ${hours}:${minutes}`;
 
+            // Weather features
             const image = document.querySelector('.weather-info img');
             const background = document.querySelector('.container');
             const cloudy = document.querySelector('.cloudy span');
