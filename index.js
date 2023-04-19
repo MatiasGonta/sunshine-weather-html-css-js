@@ -2,6 +2,9 @@ const search = document.querySelector('.search button');
 const searchBox = document.querySelector('.search');
 const error = document.querySelector('.error');
 
+const loadModal = document.querySelector(".page-loading");
+
+const weatherAPIKey = 'c23b1d28140788f772fa4de635fc98af';
 let city, historyArray = ["London","Paris","Tokyo","New York"];//Default Search History
 
 // Select History buttons
@@ -10,10 +13,25 @@ const historyTwo = document.getElementById('two');
 const historyThree = document.getElementById('three');
 const historyFour = document.getElementById('four');
 
-// Default city weather search
+// User location weather search
 window.addEventListener('load', () => {
-    city = "New York";
-    searchWeather();
+    function success(pos) {
+        let latitude = pos.coords.latitude;
+        let longitude = pos.coords.longitude;
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weatherAPIKey}`)
+            .then(response => response.json())
+            .then(json => {
+                city = json.name;
+                searchWeather();
+                return;
+            })
+    }
+
+    function error() {
+        city = "New York";
+        searchWeather();
+    }
+    navigator.geolocation.getCurrentPosition(success,error);
 });
 
 // Search History buttons
@@ -40,24 +58,34 @@ search.addEventListener('click', () => {
 });
 
 function searchWeather() {
-    const weatherAPIKey = 'c23b1d28140788f772fa4de635fc98af';
-
     if (city === '')
         return;
+
+    //Show Page Loading
+    loadModal.style.display = "flex";
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherAPIKey}`)
         .then(response => response.json())
         .then(json => {
+            //Hidden Page Loading
+            loadModal.style.display = "none";
+
             if (json.cod === '404') {
+                //Show Error Alert
                 error.style.display = 'flex';
                 error.classList.add('show');
+
+                //Hidden Error Alert
                 setTimeout(()=>{
                     error.classList.remove('show');
                     error.style.display = 'none';
                 },3000);
                 return;
             }
-            
+
+            // Update document title
+            document.title = `Sunshine Weather | ${city}`;
+
             // Search History
             historyArray.pop();
             historyArray.unshift(city);
