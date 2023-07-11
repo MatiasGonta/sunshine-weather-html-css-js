@@ -7,103 +7,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="data:;base64,=">
-    <link rel="icon" href="images/sunshine.ico"></link>
+    <link rel="icon" href="assets/sunshine.ico"></link>
     <title>Sunshine Weather</title>
 </head>
 <body>
-    <div class="container">
-        <div class="page-loading">
-            <img src="images/sunshine.png" alt="sunshine-logo">
-            <div class="loading-icon">
+    <div id="root">
+        <div class="loading-box">
+            <img src="assets/sunshine.png" alt="sunshine-logo" />
+            <div id="spinner">
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
         </div>
-        <div class="weather-info">
-            <div>
-                <p class="temp"></p>
-            </div>
-            <div>
-                <p class="city"></p>
-                <p class="time"></p>
-            </div>
-            <div>
-                <img src="">
-                <p class="description"></p>
-            </div>
+        <div class="error">
+            <span></span>
+            <i class="fas fa-exclamation-circle"></i>
         </div>
-        <div class="sidebar">
-            <div class="search">
+        <main>
+            <article>
+                <section class="weather-display">
+                    <div>
+                        <p id="temp"></p>
+                    </div>
+                    <div>
+                        <p id="city"></p>
+                        <p id="time"></p>
+                    </div>
+                    <div>
+                        <img id="icon" src="" alt="" />
+                        <p id="description"></p>
+                    </div>
+                </section>
+            </article>
+        </main>
+        <aside class="sidebar">
+            <div class="search-box">
                 <i class="fa-solid fa-location-dot"></i>
-                <input type="text" placeholder="Enter your location">
-                <button class="fa-solid fa-magnifying-glass"></button>
+                <form>
+                    <input type="text" placeholder="Enter your location">
+                    <button type="submit" class="fa-solid fa-magnifying-glass"></button>
+                </form>
             </div>
-            <div class="history">
+            <div class="search-history">
                 <h3>Search History</h3>
                 <ul>
-                    <li id="one"></li>
-                    <li id="two"></li>
-                    <li id="three"></li>
-                    <li id="four"></li>
+                    <li id="sh-one"></li>
+                    <li id="sh-two"></li>
+                    <li id="sh-three"></li>
+                    <li id="sh-four"></li>
                 </ul>
             </div>
             <div class="weather-details">
                 <h3>Weather Details</h3>
-                <div class="cloudy">
+                <div>
                     <i class="fa-solid fa-cloud"></i>
                     <div>
-                        <span></span>
+                        <span id="cloudy"></span>
                         <p>Cloudy</p>
                     </div>
                 </div>
-                <div class="humidity">
+                <div>
                     <i class="fa-solid fa-water"></i>
                     <div>
-                        <span></span>
+                        <span id="humidity"></span>
                         <p>Humidity</p>
                     </div>
                 </div>
-                <div class="wind">
+                <div>
                     <i class="fa-solid fa-wind"></i>
                     <div>
-                        <span></span>
+                        <span id="wind"></span>
                         <p>Wind Speed</p>
                     </div>
                 </div>
             </div>
-            <div class="mention">
-                <p>Coded by <span id="name">Matías Gonta</span>.</p>
-            </div>
-        </div>
-        <div class="error">
-            <span class="error-msg">Your location was not founded</span>
-            <span class="fas fa-exclamation-circle"></span>
-        </div>
-        <div class="popup">
-            <div class="close">&times;</div>
-            <div class="popup-container">
-                <h1 class="title">Social Networks</h1>
-                <div>
-                    <div class="socials">
-                        <img src="images/socials/linkedin-logo.png" alt="linkedin-logo">
-                        <a href="https://www.linkedin.com/in/mat%C3%ADas-gonta/"  target="_blank">Linkedin</a>
-                    </div>
-                    <div class="socials">
-                        <img src="images/socials/github-logo.png" alt="github-logo">
-                        <a href="https://github.com/MatiasGonta"  target="_blank">GitHub</a>
-                    </div>
-                    <div class="socials">
-                        <img src="images/socials/instagram-logo.png" alt="instagram-logo">
-                        <a href="https://www.instagram.com/matigonta_/"  target="_blank">Instagram</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </aside>
     </div>
 
     <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
