@@ -25,8 +25,8 @@ const api = axios.create({
 });
 
 const errorMatches = {
-    400: 'Bad Request: The request was invalid.',
-    401: 'Unauthorized: API key is missing or invalid.',
+    400: 'Bad Request: The request was invalid',
+    401: 'Unauthorized: API key is missing or invalid',
     404: 'Your location was not founded',
     500: 'Internal Server Error'
 };
@@ -41,7 +41,7 @@ api.interceptors.response.use(
         loadModal.style.display = 'none';
 
         // Handle Error Alert
-        errorMessage.innerHTML = errorMatches[error.response.status];
+        errorMessage.innerHTML = errorMatches[error.response.status] || 'An error occurred. Please try again later';
         errorBox.classList.add('show');
         setTimeout(()=>{
             errorBox.classList.remove('show');
@@ -62,7 +62,7 @@ const fetchWeatherByCoordinates = async (latitude, longitude) => {
         },
     });
 
-    setWeatherData(response.data);
+    handleWeatherData(response.data);
 };
     
 const fetchWeatherByCity = async (city) => {
@@ -76,10 +76,10 @@ const fetchWeatherByCity = async (city) => {
         },
     });
       
-    setWeatherData(response.data);
+    handleWeatherData(response.data);
 };
 
-const setWeatherData = (weatherData) => {
+const handleWeatherData = (weatherData) => {
     // Set Search History
     if (historyArray[0] !== weatherData.name) {
         historyArray.pop();
