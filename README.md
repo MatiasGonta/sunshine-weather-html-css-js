@@ -47,7 +47,7 @@ If you have any questions, concerns or interests, feel free to contact me.
 ---
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png" alt="English" width="100px" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2560px-Flag_of_Spain.svg.png" alt="Spanish" width="100px" />
 </p>
 
 ---
